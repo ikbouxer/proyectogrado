@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Juan Pablo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="login/css/main.css">
+	<link rel="stylesheet" type="text/css" href="login/css/estilos.css">
+	<!--===============================================================================================-->
+	<style>
+		.swal2-popup {
+			font-size: 1.6rem !important;
+		}
+	</style>
+</head>
+
+<body>
+<main>
+	<br>
+	<button class="btn btn-danger" data-dismiss="modal"><a href="../../index.html">Volver al inicio</a></button>
+	<div class="contenedor__todo">
+		<div class="caja__trasera">
+			<div class="caja__trasera-login">
+				<h3>¿Ya tienes una cuenta?</h3>
+				<p>Inicia sesión para entrar en la página</p>
+				<button id="btn__iniciar-sesion">Iniciar Sesión</button>
+			</div> 
+			<div class="caja__trasera-register">
+				<h3>¿Aún no tienes una cuenta?</h3>
+				<p>Regístrate para que puedas iniciar sesión</p>
+				<button id="btn__registrarse">Regístrarse</button>
+			</div>
+		</div>
+
+		<!--Formulario de Login y registro-->
+		<div class="contenedor__login-register">
+			<!--Login-->
+			<form class="formulario__login" method="post" id="frmAcceso">
+				
+					<div class="login100-form validate-form">
+						<h2>Iniciar Sesión</h2>
+		
+						<div class="wrap-input100 validate-input m-b-20" data-validate="Ingresa tu correo">
+							<input class="input100" type="text" id="logina" name="logina" placeholder="usuario" autocomplete="new-password">
+							<span class="focus-input100"></span>
+						</div>
+		
+						<div class="wrap-input100 validate-input m-b-25" data-validate="Ingresa tu contraseña">
+							<input class="input100" type="password" id="clavea" name="clavea" placeholder="contraseña">
+							<span class="focus-input100"></span>
+						</div>
+						<!--<div class="text-right p-t-8 p-b-31">
+							<a href="#" onclick="abrirModalRestablecerContra()">
+								Olvidaste la contraseña?
+							</a>
+						</div>-->
+						<div class="container-login100-form-btn">
+							<button type="submit" class="login100-form-btn">
+								Iniciar sesión
+							</button>
+						</div>
+					</div>
+			</form>
+			                    <!--Register-->
+								<form  method="POST" class="formulario__register" id="frmRegistroprs">
+									<h2>Registrate!</h2>
+									<input type="hidden" name="idusar" id="idusar">
+									<input id="inpNombre" type="text" placeholder="Nombres" name="inpNombre" required>
+									<input id="inpApellido" type="text" placeholder="Apellidos" name="inpApellido" required>
+									<select name="inpCurso" id="inpCurso" required>
+										<option selected disabled>Elige tu curso</option>
+										<option value="A">A</option>
+										<option value="B">B</option>
+										<option value="C">C</option>
+									</select>
+									<input id="inpci" type="text" placeholder="Carnet de Identidad" name="inpci"required>
+									<input id="inpdireccion" type="text" placeholder="Direccion" name="inpdireccion"required>
+									<input id="inptelefono" type="text" placeholder="telefono" name="inptelefono"required>
+									<input id="inpcorreo" type="email" placeholder="Correo" name="inpcorreo"required>
+									<input id="inpUsuario" type="text" placeholder="usuario" name="inpUsuario"required>
+									<input id="inpContrase" type="password" placeholder="Contraseña" name="inpContrase"required>
+									<button>Regístrarse</button>
+								</form>
+
+								
+			                
+		</div>
+	
+	</div>
+	<div id="dropDownSelect1"></div>
+
+<!-- Restablecer contraseña modal -->
+<div class="modal fade" id="modal_restablecer_contra" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>Restablecer contraseña</b></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <label for=""><b>Ingrese el correo registrado para enviarle una contraseña que le asignara el sistema</b></label>
+                        <input type="email" class="form-control" id="txt_email" placeholder="Ingrese Email">
+                        <br>
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="restablecerContra()">Enviar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--fin de restrablecer contraseña -->
+	<!--===============================================================================================-->
+	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="login/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="login/vendor/bootstrap/js/popper.js"></script>
+	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="login/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="login/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="login/js/main.js"></script>
+	<!--=======================================ALERTAS JAVASCRIOT==========================================-->
+	<script src="scripts/librerias/sweetalert2@9.js"></script>
+	<!--=======================================JS USUARIO==========================================-->
+	<script type="text/javascript" src="scripts/login.js"></script>
+	<script src="scripts/script.js"></script>
+	<script type="text/javascript" src="scripts/registropr.js"></script>
+</main>
+</body>
+
+</html>
